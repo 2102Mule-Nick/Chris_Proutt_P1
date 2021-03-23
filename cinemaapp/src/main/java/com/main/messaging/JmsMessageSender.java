@@ -71,7 +71,7 @@ public class JmsMessageSender {
 	
 	public void sendToInventoryQueue(Ticket item, int quantity) {
 		
-		TicketInventory ii = new TicketInventory();
+		TicketInventory ii = new TicketInventory(item, quantity);
 		
 		jmsTemplate.send(inventoryQueue, (s) -> s.createObjectMessage(ii));
 	}

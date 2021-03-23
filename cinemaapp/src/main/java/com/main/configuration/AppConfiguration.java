@@ -95,9 +95,8 @@ public class AppConfiguration {
 		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
 		container.setConnectionFactory(connectionFactory);
 //		container.setDestinationName(EXAMPLE_QUEUE);
-		container.setDestinationName(EXAMPLE_TOPIC);
-		container.setPubSubDomain(true);
-		
+		container.setDestinationName(INVENTORY_QUEUE);
+//		container.setPubSubDomain(true);
 		container.setMessageListener(messageListener);
 		return container;
 	}
