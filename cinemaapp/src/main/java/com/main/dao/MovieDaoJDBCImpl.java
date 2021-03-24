@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.main.dao.mapper.MovieRowMapper;
 import com.main.pojo.Movie;
+import com.main.pojo.Theater;
 
 @Repository
 public class MovieDaoJDBCImpl implements MovieDao {
@@ -53,6 +54,15 @@ public class MovieDaoJDBCImpl implements MovieDao {
 		List<Movie> movieList = template.query(sql, mapper, id);
 		
 		return movieList.get(0);
+	}
+
+	@Override
+	public List<Movie> getAllMoviesFromTheater(Theater theater) {
+		String sql = "select * from showtimes where theater_id = ?";
+		
+		List<Movie> movieList = template.query(sql, mapper, theater.getTheater_id());
+		
+		return movieList;
 	}
 
 }
