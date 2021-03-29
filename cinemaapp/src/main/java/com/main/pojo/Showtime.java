@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class Showtime {
 		
+	private int showtime_id;
+	
 	private int theater_id;
 	
 	private int screen_id;
@@ -18,6 +20,15 @@ public class Showtime {
 	private Time showing_time;
 	
 	private Date showing_date;
+
+	public int getShowtime_id() {
+		return showtime_id;
+	}
+	
+	@Autowired
+	public void setShowtime_id(int showtime_id) {
+		this.showtime_id = showtime_id;
+	}
 
 	public int getTheater_id() {
 		return theater_id;

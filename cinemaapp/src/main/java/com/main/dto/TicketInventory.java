@@ -6,6 +6,11 @@ import com.main.pojo.Ticket;
 
 public class TicketInventory implements Serializable {
 	 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8612996743698839615L;
+
 	private Ticket ticket;
 	
 	private int quantity;
