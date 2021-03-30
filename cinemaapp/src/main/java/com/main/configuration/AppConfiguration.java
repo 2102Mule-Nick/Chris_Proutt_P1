@@ -3,9 +3,11 @@ package com.main.configuration;
 import java.util.Scanner;
 
 import javax.jms.ConnectionFactory;
+import javax.jms.Topic;
 import javax.sql.DataSource;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.command.ActiveMQTopic;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -30,8 +32,6 @@ import com.main.messaging.JmsMessageListener;
 public class AppConfiguration {
 	public static final String BROKER_URL = "tcp://localhost:61616";
 
-	public static final String EXAMPLE_QUEUE = "EXAMPLE_QUEUE";
-	public static final String EXAMPLE_TOPIC = "EXAMPLE_TOPIC";
 	public static final String INVENTORY_QUEUE = "INVENTORY_QUEUE";
 	public static final String MOVIE_TOPIC = "MOVIE_TOPIC";
 	
@@ -91,13 +91,18 @@ public class AppConfiguration {
 	}
 	
 	@Bean
+	public Topic destinationTopic() {
+		return new ActiveMQTopic(MOVIE_TOPIC);
+	}
+	
+	@Bean
 	public DefaultMessageListenerContainer jmsContainer(ConnectionFactory connectionFactory,
 		JmsMessageListener messageListener) {
 		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
 		container.setConnectionFactory(connectionFactory);
-//		container.setDestinationName(EXAMPLE_QUEUE);
-		container.setDestinationName(INVENTORY_QUEUE);
-//		container.setPubSubDomain(true);
+//		container.setDestinationName(TICKET_QUEUE);
+		container.setDestinationName(MOVIE_TOPIC);
+		container.setPubSubDomain(true);
 		container.setMessageListener(messageListener);
 		return container;
 	}
