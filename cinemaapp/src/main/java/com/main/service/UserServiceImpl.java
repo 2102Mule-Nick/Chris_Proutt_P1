@@ -29,6 +29,8 @@ public class UserServiceImpl implements UserService {
 		this.userdao = userdao;
 	}
 	
+	
+	
 	@Autowired
 	public void setCurrentUser(User currentUser) {
 		this.currentUser = currentUser;
@@ -65,25 +67,21 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User registerUser(User user) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public User updateUser(User user) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean removeUser(User user) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public User getCurrentUser() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

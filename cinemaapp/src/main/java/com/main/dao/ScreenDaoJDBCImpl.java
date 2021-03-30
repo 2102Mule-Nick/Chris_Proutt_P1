@@ -13,12 +13,30 @@ import com.main.pojo.Theater;
 @Repository
 public class ScreenDaoJDBCImpl implements ScreenDao {
 
-	private JdbcTemplate template;	
+	private JdbcTemplate template;
 	
 	private ScreenRowMapper mapper;
 	
 	private TheaterDao theaterdao;
 	
+	public JdbcTemplate getTemplate() {
+		return template;
+	}
+
+	@Autowired
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+	}
+
+	public ScreenRowMapper getMapper() {
+		return mapper;
+	}
+	
+	@Autowired
+	public void setMapper(ScreenRowMapper mapper) {
+		this.mapper = mapper;
+	}
+
 	public TheaterDao getTheaterdao() {
 		return theaterdao;
 	}
@@ -69,7 +87,7 @@ public class ScreenDaoJDBCImpl implements ScreenDao {
 		
 		List<Screen> screenList = template.query(sql, mapper);
 		
-		return null;
+		return screenList;
 	}
 
 }

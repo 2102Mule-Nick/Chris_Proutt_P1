@@ -20,6 +20,24 @@ public class TheaterDaoJDBCImpl implements TheaterDao {
 	
 	private TheaterRowMapper mapper;
 	
+	public JdbcTemplate getTemplate() {
+		return template;
+	}
+
+	@Autowired
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+	}
+
+	public TheaterRowMapper getMapper() {
+		return mapper;
+	}
+
+	@Autowired
+	public void setMapper(TheaterRowMapper mapper) {
+		this.mapper = mapper;
+	}
+
 	@Override
 	public void createTheater(Theater theater) {
 		log.trace("create theater method called.");

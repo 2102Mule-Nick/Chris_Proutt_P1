@@ -18,7 +18,6 @@ public class JmsMessageListener implements MessageListener {
 				String msg = ((TextMessage) message).getText();
 				System.out.println("================MESSAGE RECIEVED: " + msg + "===================");
 			} catch (JMSException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

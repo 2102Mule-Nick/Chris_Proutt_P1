@@ -22,6 +22,24 @@ public class ShowtimeDaoJDBCImpl implements ShowtimeDao {
 	
 	private ShowtimeRowMapper mapper;
 	
+	public JdbcTemplate getTemplate() {
+		return template;
+	}
+
+	@Autowired
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+	}
+
+	public ShowtimeRowMapper getMapper() {
+		return mapper;
+	}
+
+	@Autowired
+	public void setMapper(ShowtimeRowMapper mapper) {
+		this.mapper = mapper;
+	}
+
 	@Override
 	public void createShowtime(Showtime showtime) {
 		log.trace("Creating a showtime");

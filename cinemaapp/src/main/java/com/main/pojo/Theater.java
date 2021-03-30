@@ -64,4 +64,13 @@ public class Theater {
 	public void setShowtimes(List<Movie> showtimes) {
 		this.showtimes = showtimes;
 	}
+
+	public List<Screen> getScreens() {
+		return screens;
+	}
+
+	@Autowired
+	public void setScreens(List<Screen> screens) {
+		this.screens = screens;
+	}
 }

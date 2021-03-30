@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.main.pojo.Actor;
 import com.main.pojo.Movie;
-import com.main.pojo.MovieCharacter;
 
 public interface ActorDao {
 

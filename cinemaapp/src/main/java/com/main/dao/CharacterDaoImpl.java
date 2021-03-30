@@ -2,6 +2,7 @@ package com.main.dao;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -17,22 +18,45 @@ public class CharacterDaoImpl implements CharacterDao {
 	
 	private CharacterRowMapper mapper;
 	
+	public JdbcTemplate getTemplate() {
+		return template;
+	}
+
+	@Autowired
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+	}
+
+	public CharacterRowMapper getMapper() {
+		return mapper;
+	}
+
+	@Autowired
+	public void setMapper(CharacterRowMapper mapper) {
+		this.mapper = mapper;
+	}
+
 	@Override
 	public void addCharacter(MovieCharacter character) {
-		// TODO Auto-generated method stub
-
+		String sql = "insert into characters (actor_id, character_name, movie_id) values (?, ?, ?)";
+		
+		template.update(sql, character.getActor_id(), character.getCharacter_name(), character.getMovie_id());
 	}
 
 	@Override
 	public void deleteCharacter(MovieCharacter character) {
-		// TODO Auto-generated method stub
-
+		String sql = "delete from characters where character_id = ?";
+		
+		template.update(sql, character.getCharacter_id());
 	}
 
 	@Override
 	public MovieCharacter getCharacterByNameAndMovie(MovieCharacter character, Movie movie) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from characters where character_id = ? and movie_id = ?";
+		
+		List<MovieCharacter> characterList = template.query(sql, mapper, character.getCharacter_id(), movie.getMovie_id());
+		
+		return characterList.get(0);
 	}
 
 	@Override

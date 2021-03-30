@@ -20,6 +20,24 @@ public class SeatDaoImpl implements SeatDao {
 	
 	private JdbcTemplate template;
 	
+	public JdbcTemplate getTemplate() {
+		return template;
+	}
+
+	@Autowired
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+	}
+
+	public SeatRowMapper getMapper() {
+		return mapper;
+	}
+
+	@Autowired
+	public void setMapper(SeatRowMapper mapper) {
+		this.mapper = mapper;
+	}
+
 	private SeatRowMapper mapper;
 	
 	@Override

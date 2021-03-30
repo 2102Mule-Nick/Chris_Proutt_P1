@@ -5,9 +5,11 @@ import java.sql.SQLException;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.stereotype.Component;
 
 import com.main.pojo.Screen;
 
+@Component
 public class ScreenExtractor implements ResultSetExtractor<Screen> {
 
 	@Override

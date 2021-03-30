@@ -22,6 +22,7 @@ public class Ticket {
 		return ticket_id;
 	}
 
+	@Autowired
 	public void setTicket_id(int ticket_id) {
 		this.ticket_id = ticket_id;
 	}

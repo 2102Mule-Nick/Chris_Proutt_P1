@@ -2,8 +2,12 @@ package com.main.dto;
 
 import java.io.Serializable;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.main.pojo.Ticket;
 
+@Component
 public class TicketInventory implements Serializable {
 	 
 	/**
@@ -19,6 +23,7 @@ public class TicketInventory implements Serializable {
 		return ticket;
 	}
 
+	@Autowired
 	public void setTicket(Ticket ticket) {
 		this.ticket = ticket;
 	}
@@ -27,6 +32,7 @@ public class TicketInventory implements Serializable {
 		return quantity;
 	}
 
+	@Autowired
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}

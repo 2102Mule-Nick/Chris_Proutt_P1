@@ -3,6 +3,7 @@ package com.main.dao.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ public class UserRowMapper implements RowMapper<User> {
 
 	private UserExtractor extractor;
 	
+	@Autowired
 	public void setExtractor(UserExtractor extractor) {
 		this.extractor = extractor;
 	}

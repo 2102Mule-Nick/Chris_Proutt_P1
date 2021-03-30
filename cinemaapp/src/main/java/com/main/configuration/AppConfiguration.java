@@ -33,6 +33,7 @@ public class AppConfiguration {
 	public static final String EXAMPLE_QUEUE = "EXAMPLE_QUEUE";
 	public static final String EXAMPLE_TOPIC = "EXAMPLE_TOPIC";
 	public static final String INVENTORY_QUEUE = "INVENTORY_QUEUE";
+	public static final String MOVIE_TOPIC = "MOVIE_TOPIC";
 	
 	//DataSource info
 		public static final String DATASOURCE_URL = 

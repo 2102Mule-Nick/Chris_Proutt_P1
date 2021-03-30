@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import com.main.dao.UserDao;
 import com.main.dao.UserDaoJDBCImpl;
-import com.main.dao.UserDaoPostgres;
 import com.main.pojo.User;
 import com.main.service.UserService;
 import com.main.service.UserServiceImpl;
