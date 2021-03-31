@@ -15,8 +15,6 @@ public class JmsMessageSender {
 
 	private JmsTemplate jmsTemplate;
 	
-	private Queue exampleQueue;
-
 	private Topic topic;
 	
 	private Queue inventoryQueue;
@@ -28,15 +26,6 @@ public class JmsMessageSender {
 	@Autowired
 	public void setJmsTemplate(JmsTemplate jmsTemplate) {
 		this.jmsTemplate = jmsTemplate;
-	}
-
-	public Queue getExampleQueue() {
-		return exampleQueue;
-	}
-
-	@Autowired
-	public void setExampleQueue(Queue exampleQueue) {
-		this.exampleQueue = exampleQueue;
 	}
 
 	public Topic getTopic() {
@@ -65,13 +54,10 @@ public class JmsMessageSender {
 		
 	}
 	
-	public void sendToQueue(String msg) {
-		jmsTemplate.send(exampleQueue, (s) -> s.createTextMessage(msg));
-	}
 	
-	public void sendToInventoryQueue(Ticket item, int quantity) {
+	public void sendToInventoryQueue(Ticket ticket, int quantity) {
 		
-		TicketInventory ii = new TicketInventory(item, quantity);
+		TicketInventory ii = new TicketInventory(ticket, quantity);
 		
 		jmsTemplate.send(inventoryQueue, (s) -> s.createObjectMessage(ii));
 	}
