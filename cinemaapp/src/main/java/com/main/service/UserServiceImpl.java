@@ -14,7 +14,6 @@ public class UserServiceImpl implements UserService {
 	//Logger log;
 	
 	private UserDao userdao;
-	private User currentUser;
 	
 	public UserServiceImpl(UserDao userdao) {
 		this.userdao = userdao;
@@ -27,13 +26,6 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	public void setUserdao(UserDao userdao) {
 		this.userdao = userdao;
-	}
-	
-	
-	
-	@Autowired
-	public void setCurrentUser(User currentUser) {
-		this.currentUser = currentUser;
 	}
 
 	@Override
@@ -59,7 +51,6 @@ public class UserServiceImpl implements UserService {
 		User existingUser = userdao.getUserByName(user.getUsername());
 		
 		if(existingUser.equals(user)) {
-			this.currentUser = existingUser;
 			return existingUser;
 		}
 		return user;
@@ -71,7 +62,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User updateUser(User user) {
+	public User updateUser(User user, String password) {
 		return null;
 	}
 
@@ -83,6 +74,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getCurrentUser() {
 		return null;
+	}
+
+	@Override
+	public User getUserById(User user) {
+		User newUser = userdao.getUserById(user.getUser_id());
+		return newUser;
 	}
 
 }

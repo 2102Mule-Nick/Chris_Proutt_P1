@@ -2,6 +2,8 @@ package com.main.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,14 +22,14 @@ class UserServiceImplTest {
 	
 	private static UserService service;
 	
-	@BeforeEach
+	@Before
 	void setUp() throws Exception {
 		user = new User("username", "password");
 		userdao = new UserDaoJDBCImpl();
 		service = new UserServiceImpl(userdao);
 	}
 
-	@AfterEach
+	@After
 	void tearDown() throws Exception {
 		user = null;
 		userdao = null;

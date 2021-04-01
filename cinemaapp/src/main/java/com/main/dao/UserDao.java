@@ -8,6 +8,8 @@ public interface UserDao {
 	
 	public void deleteUser(User user);
 	
+	public User getUserById(int id);
+	
 	public User getUserByName(String username);
 	
 	public void updatePassword(User user, String password);

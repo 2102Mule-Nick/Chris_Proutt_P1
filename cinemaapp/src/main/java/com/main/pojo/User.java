@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class User {
 
-	private long user_id;
+	private int user_id;
 	
 	private String username;
 	
@@ -22,12 +22,12 @@ public class User {
 	
 	private boolean isAdmin;
 	
-	public long getUser_id() {
+	public int getUser_id() {
 		return user_id;
 	}
 
 	@Autowired
-	public void setUser_id(long user_id) {
+	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
 

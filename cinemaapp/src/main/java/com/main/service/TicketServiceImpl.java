@@ -17,6 +17,10 @@ public class TicketServiceImpl implements TicketService {
 	
 	private JmsMessageSender messageSender;
 
+	public TicketServiceImpl(TicketDao ticketdao) {
+		this.ticketdao = ticketdao;
+	}
+
 	public TicketDao getTicketdao() {
 		return ticketdao;
 	}
@@ -37,13 +41,12 @@ public class TicketServiceImpl implements TicketService {
 		messageSender.sendToInventoryQueue(ticket, quantity);
 		
 		ticketdao.createTicket(ticket);
-		
 	}
 
 	@Override
-	public void deleteTicket(int ticketId, User user) {
-		// TODO Auto-generated method stub
-
+	public void deleteTicket(Ticket ticket) {
+		// Send message to inventory to delete message messageSender
+		ticketdao.deleteTicket(ticket);
 	}
 
 }

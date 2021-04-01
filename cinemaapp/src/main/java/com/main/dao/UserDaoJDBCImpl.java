@@ -63,4 +63,14 @@ public class UserDaoJDBCImpl implements UserDao {
 		template.update(sql, password);
 	}
 
+	@Override
+	public User getUserById(int id) {
+		String sql = "select * from users where user_id = ?";
+		
+		List<User> userList = template.query(sql, mapper, id);
+		
+		return userList.get(0);
+		
+	}
+
 }

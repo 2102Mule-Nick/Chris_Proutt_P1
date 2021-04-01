@@ -7,6 +7,6 @@ public interface TicketService {
 
 	public void buyTicket(Ticket ticket, int quantity);
 	
-	public void deleteTicket(int ticketId, User user);
+	public void deleteTicket(Ticket ticket);
 	
 }

@@ -8,91 +8,70 @@ import org.springframework.stereotype.Component;
 @Component
 public class Ticket {
 	
-	private String movieTitle;
+	private int ticket_id;
 	
-	private Time runtime;
+	private int user_id;
 	
-	private String theater;
+	private int theater_id;
 	
-	private String address;
+	private int movie_id;
 	
-	private String showtime;
+	private int seat_id;
 	
-	private String seat;
-	
-	private String type;
-	
-	private String screen;
+	private int screen_id;
 
-	public String getMovieTitle() {
-		return movieTitle;
-	}
-	
-	@Autowired
-	public void setMovieTitle(String movieTitle) {
-		this.movieTitle = movieTitle;
-	}
-
-	public Time getRuntime() {
-		return runtime;
+	public int getTicket_id() {
+		return ticket_id;
 	}
 
 	@Autowired
-	public void setRuntime(Time runtime) {
-		this.runtime = runtime;
+	public void setTicket_id(int ticket_id) {
+		this.ticket_id = ticket_id;
 	}
 
-	public String getTheater() {
-		return theater;
-	}
-
-	@Autowired
-	public void setTheater(String theater) {
-		this.theater = theater;
-	}
-
-	public String getAddress() {
-		return address;
+	public int getUser_id() {
+		return user_id;
 	}
 
 	@Autowired
-	public void setAddress(String address) {
-		this.address = address;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
-	public String getShowtime() {
-		return showtime;
-	}
-
-	@Autowired
-	public void setShowtime(String showtime) {
-		this.showtime = showtime;
-	}
-
-	public String getSeat() {
-		return seat;
+	public int getTheater_id() {
+		return theater_id;
 	}
 
 	@Autowired
-	public void setSeat(String seat) {
-		this.seat = seat;
+	public void setTheater_id(int theater_id) {
+		this.theater_id = theater_id;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	@Autowired
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getScreen() {
-		return screen;
+	public int getMovie_id() {
+		return movie_id;
 	}
 
 	@Autowired
-	public void setScreen(String screen) {
-		this.screen = screen;
+	public void setMovie_id(int movie_id) {
+		this.movie_id = movie_id;
 	}
+
+	public int getSeat_id() {
+		return seat_id;
+	}
+
+	@Autowired
+	public void setSeat_id(int seat_id) {
+		this.seat_id = seat_id;
+	}
+
+	public int getScreen_id() {
+		return screen_id;
+	}
+
+	@Autowired
+	public void setScreen_id(int screen_id) {
+		this.screen_id = screen_id;
+	}
+
 }
