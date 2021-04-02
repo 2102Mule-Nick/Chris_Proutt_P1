@@ -1,4 +1,4 @@
-package com.main.dao;
+package com.main.service;
 
 import java.util.List;
 
@@ -10,25 +10,25 @@ import com.main.pojo.Theater;
 import com.main.pojo.Ticket;
 import com.main.pojo.User;
 
-public interface TicketCreation {
+public interface TicketHandlerService {
 
 	public void createTicket(Ticket ticket);
 	
 	public void deleteTicket(Ticket ticket);
 	
-	public Ticket getTicketById(int id);
+	public Ticket getTicketbyId(int id);
 	
 	public List<Ticket> getAllTickets();
 	
-	public List<Ticket> getAllTicketsForMovie(Movie movie);
+	public List<Ticket> getAllTicketsByUser(User user);
 	
-	public List<Ticket> getAllTicketForScreen(Screen screen);
+	public List<Ticket> getAllTicketsByMovie(Movie movie);
 	
-	public List<Ticket> getAllTicketForTheater(Theater theater);
+	public List<Ticket> getAllTicketsByScreen(Screen screen);
 	
-	public List<Ticket> getAllTicketsForSeat(Seat seat);
+	public List<Ticket> getAllTicketsBySeat(Seat seat);
 	
-	public List<Ticket> getAllTicketsForUser(User user);
+	public List<Ticket> getAllTicketsByTheater(Theater theater);
 	
 	public Ticket getTicketInformation(int id);
 	
