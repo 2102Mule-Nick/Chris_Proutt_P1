@@ -25,11 +25,14 @@ SOAP
 # Features
 
 User can book tickets to local movie theaters
+
 System automatically creates ticket info on purchase
+
 System communicates when a seat has been booked
 
 # To-do list:
 Add payment functionality
+
 Add location-based functionality
 
 # Getting Started
