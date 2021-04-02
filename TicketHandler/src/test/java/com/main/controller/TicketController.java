@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.main.pojo.Movie;
+import com.main.pojo.Screen;
+import com.main.pojo.Seat;
+import com.main.pojo.Theater;
 import com.main.pojo.Ticket;
 import com.main.pojo.User;
 import com.main.service.TicketHandlerService;
@@ -52,9 +55,29 @@ public class TicketController {
 		return service.getAllTicketsByUser(user);
 	}
 	
-	@GetMapping("ticket/movie/{movieId}")
+	@GetMapping("/ticket/movie/{movieId}")
 	public List<Ticket> getAllTicketsByMovie(@RequestBody Movie movie){
 		return service.getAllTicketsByMovie(movie);
+	}
+	
+	@GetMapping("/ticket/theater/{theaterId}")
+	public List<Ticket> getAllTicketByTheater(@RequestBody Theater theater){
+		return service.getAllTicketsByTheater(theater);
+	}
+	
+	@GetMapping("/ticket/screen/{screenId}")
+	public List<Ticket> getAllTicketsByScreen(@RequestBody Screen screen){
+		return service.getAllTicketsByScreen(screen);
+	}
+	
+	@GetMapping("/ticket/seat/{seatId}")
+	public List<Ticket> getAllTicketsBySeat(@RequestBody Seat seat){
+		return service.getAllTicketsBySeat(seat);
+	}
+	
+	@GetMapping("/ticket/{ticketId}/info")
+	public Ticket getTicketInformation(int id) {
+		return service.getTicketInformation(id);
 	}
 		
 }
