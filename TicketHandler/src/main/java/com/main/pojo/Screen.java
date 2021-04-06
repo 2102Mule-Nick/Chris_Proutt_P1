@@ -1,10 +1,13 @@
 package com.main.pojo;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Screen {
+
+	public Screen() {
+		super();
+	}
 
 	private int screen_id;
 	
@@ -18,7 +21,6 @@ public class Screen {
 		return screen_id;
 	}
 
-	@Autowired
 	public void setScreen_id(int screen_id) {
 		this.screen_id = screen_id;
 	}
@@ -27,7 +29,6 @@ public class Screen {
 		return theater_id;
 	}
 
-	@Autowired
 	public void setTheater_id(int theater_id) {
 		this.theater_id = theater_id;
 	}
@@ -36,7 +37,6 @@ public class Screen {
 		return capacity;
 	}
 
-	@Autowired
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
@@ -45,7 +45,6 @@ public class Screen {
 		return screen_type;
 	}
 
-	@Autowired
 	public void setScreen_type(String screen_type) {
 		this.screen_type = screen_type;
 	}

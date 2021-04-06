@@ -3,12 +3,15 @@ package com.main.pojo;
 import java.sql.Time;
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Ticket {
 	
+	public Ticket() {
+		super();
+	}
+
 	private int ticket_id;
 	
 	private int user_id;
@@ -45,7 +48,6 @@ public class Ticket {
 		return ticket_id;
 	}
 
-	@Autowired
 	public void setTicket_id(int ticket_id) {
 		this.ticket_id = ticket_id;
 	}
@@ -54,7 +56,6 @@ public class Ticket {
 		return user_id;
 	}
 
-	@Autowired
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
@@ -63,7 +64,6 @@ public class Ticket {
 		return theater_id;
 	}
 
-	@Autowired
 	public void setTheater_id(int theater_id) {
 		this.theater_id = theater_id;
 	}
@@ -72,7 +72,6 @@ public class Ticket {
 		return movie_id;
 	}
 
-	@Autowired
 	public void setMovie_id(int movie_id) {
 		this.movie_id = movie_id;
 	}
@@ -81,7 +80,6 @@ public class Ticket {
 		return seat_id;
 	}
 
-	@Autowired
 	public void setSeat_id(int seat_id) {
 		this.seat_id = seat_id;
 	}
@@ -90,7 +88,6 @@ public class Ticket {
 		return screen_id;
 	}
 
-	@Autowired
 	public void setScreen_id(int screen_id) {
 		this.screen_id = screen_id;
 	}
@@ -99,7 +96,6 @@ public class Ticket {
 		return user_first_name;
 	}
 
-	@Autowired
 	public void setUser_first_name(String user_first_name) {
 		this.user_first_name = user_first_name;
 	}
@@ -108,7 +104,6 @@ public class Ticket {
 		return user_last_name;
 	}
 
-	@Autowired
 	public void setUser_last_name(String user_last_name) {
 		this.user_last_name = user_last_name;
 	}
@@ -117,7 +112,6 @@ public class Ticket {
 		return theater_name;
 	}
 
-	@Autowired
 	public void setTheater_name(String theater_name) {
 		this.theater_name = theater_name;
 	}
@@ -126,7 +120,6 @@ public class Ticket {
 		return theater_address;
 	}
 
-	@Autowired
 	public void setTheater_address(String theater_address) {
 		this.theater_address = theater_address;
 	}
@@ -135,7 +128,6 @@ public class Ticket {
 		return title;
 	}
 
-	@Autowired
 	public void setTitle(String title) {
 		this.title = title;
 	}
@@ -144,7 +136,6 @@ public class Ticket {
 		return runtime;
 	}
 
-	@Autowired
 	public void setRuntime(Time runtime) {
 		this.runtime = runtime;
 	}
@@ -153,7 +144,6 @@ public class Ticket {
 		return date;
 	}
 
-	@Autowired
 	public void setDate(Date date) {
 		this.date = date;
 	}
@@ -162,7 +152,6 @@ public class Ticket {
 		return showtime;
 	}
 
-	@Autowired
 	public void setShowtime(Time showtime) {
 		this.showtime = showtime;
 	}
@@ -171,7 +160,6 @@ public class Ticket {
 		return seat_number;
 	}
 	
-	@Autowired
 	public void setSeat_number(String seat_number) {
 		this.seat_number = seat_number;
 	}
@@ -180,7 +168,6 @@ public class Ticket {
 		return screen_name;
 	}
 
-	@Autowired
 	public void setScreen_name(String screen_name) {
 		this.screen_name = screen_name;
 	}

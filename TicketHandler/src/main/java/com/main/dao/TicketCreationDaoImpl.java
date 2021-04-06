@@ -10,13 +10,16 @@ import com.main.dao.mapper.TicketCreationRowMapper;
 import com.main.pojo.Movie;
 import com.main.pojo.Screen;
 import com.main.pojo.Seat;
-import com.main.pojo.Showtime;
 import com.main.pojo.Theater;
 import com.main.pojo.Ticket;
 import com.main.pojo.User;
 
 @Repository
 public class TicketCreationDaoImpl implements TicketCreation {
+
+	public TicketCreationDaoImpl() {
+		super();
+	}
 
 	private JdbcTemplate template;
 	
@@ -112,7 +115,7 @@ public class TicketCreationDaoImpl implements TicketCreation {
 	@Override
 	public Ticket getTicketInformation(int id) {
 		
-		String sql = "select ti.ticket_id, u.first_name, u.last_name, th.theater_name, th.theater_address, m.title, m.runtime, st.date, st.showing_time, s.seat_number, s2.screen_name from tickets ti"
+		/*String sql = "select ti.ticket_id, u.first_name, u.last_name, th.theater_name, th.theater_address, m.title, m.runtime, st.date, st.showing_time, s.seat_number, s2.screen_name from tickets ti"
 				+ "	inner join users u on u.user_id = ti.user_id"
 				+ "	inner join theater th on ti.theater_id = th.theater_id"
 				+ "	inner join movies m on m.movie_id = ti.movie_id"
@@ -123,7 +126,8 @@ public class TicketCreationDaoImpl implements TicketCreation {
 		
 		List<Ticket> ticketList = template.query(sql, mapper, id);
 		
-		return ticketList.get(0);
+		return ticketList.get(0);*/
+		return null;
 	}	
 	
 

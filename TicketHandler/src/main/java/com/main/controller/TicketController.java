@@ -21,6 +21,10 @@ import com.main.service.TicketHandlerService;
 @RestController
 public class TicketController {
 
+	public TicketController() {
+		super();
+	}
+
 	private TicketHandlerService service;
 
 	@Autowired
@@ -77,7 +81,8 @@ public class TicketController {
 	
 	@GetMapping("/ticket/{ticketId}/info")
 	public Ticket getTicketInformation(int id) {
-		return service.getTicketInformation(id);
+		/*return service.getTicketInformation(id);*/
+		return null;
 	}
 		
 }

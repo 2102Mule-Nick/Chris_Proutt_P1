@@ -9,7 +9,6 @@ import com.main.dao.TicketCreation;
 import com.main.pojo.Movie;
 import com.main.pojo.Screen;
 import com.main.pojo.Seat;
-import com.main.pojo.Showtime;
 import com.main.pojo.Theater;
 import com.main.pojo.Ticket;
 import com.main.pojo.User;
@@ -17,8 +16,13 @@ import com.main.pojo.User;
 @Service
 public class TicketHandlerServiceImpl implements TicketHandlerService {
 
+	public TicketHandlerServiceImpl() {
+		super();
+	}
+
 	private TicketCreation ticketdao;
 	
+	@Autowired
 	public TicketHandlerServiceImpl(TicketCreation ticketdao) {
 		this.ticketdao = ticketdao;
 	}
@@ -80,7 +84,8 @@ public class TicketHandlerServiceImpl implements TicketHandlerService {
 
 	@Override
 	public Ticket getTicketInformation(int id) {
-		return ticketdao.getTicketInformation(id);
+		//return ticketdao.getTicketInformation(id);
+		return null;
 	}
 
 }

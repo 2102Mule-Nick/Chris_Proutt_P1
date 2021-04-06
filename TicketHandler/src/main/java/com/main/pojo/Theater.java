@@ -2,12 +2,15 @@ package com.main.pojo;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Theater {
 	
+	public Theater() {
+		super();
+	}
+
 	private int theater_id;
 	
 	private String theaterName;
@@ -24,7 +27,6 @@ public class Theater {
 		return theater_id;
 	}
 
-	@Autowired
 	public void setTheater_id(int theater_id) {
 		this.theater_id = theater_id;
 	}
@@ -33,7 +35,6 @@ public class Theater {
 		return theaterName;
 	}
 
-	@Autowired
 	public void setTheaterName(String theaterName) {
 		this.theaterName = theaterName;
 	}
@@ -42,7 +43,6 @@ public class Theater {
 		return address;
 	}
 
-	@Autowired
 	public void setAddress(String address) {
 		this.address = address;
 	}
@@ -51,7 +51,6 @@ public class Theater {
 		return num_of_screens;
 	}
 
-	@Autowired
 	public void setNum_of_screens(int num_of_screens) {
 		this.num_of_screens = num_of_screens;
 	}
@@ -60,7 +59,6 @@ public class Theater {
 		return showtimes;
 	}
 
-	@Autowired
 	public void setShowtimes(List<Movie> showtimes) {
 		this.showtimes = showtimes;
 	}
@@ -69,7 +67,6 @@ public class Theater {
 		return screens;
 	}
 
-	@Autowired
 	public void setScreens(List<Screen> screens) {
 		this.screens = screens;
 	}

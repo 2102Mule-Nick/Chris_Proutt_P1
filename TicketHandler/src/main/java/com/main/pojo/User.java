@@ -1,10 +1,13 @@
 package com.main.pojo;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class User {
+	
+	public User() {
+		super();
+	}
 
 	private int user_id;
 	
@@ -26,7 +29,6 @@ public class User {
 		return user_id;
 	}
 
-	@Autowired
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
@@ -35,7 +37,6 @@ public class User {
 		return username;
 	}
 	
-	@Autowired
 	public void setUsername(String username) {
 		this.username = username;
 	}
@@ -44,7 +45,6 @@ public class User {
 		return password;
 	}
 
-	@Autowired
 	public void setPassword(String password) {
 		this.password = password;
 	}
@@ -53,7 +53,6 @@ public class User {
 		return firstName;
 	}
 
-	@Autowired
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
@@ -62,7 +61,6 @@ public class User {
 		return lastName;
 	}
 
-	@Autowired
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
@@ -71,7 +69,6 @@ public class User {
 		return isAdmin;
 	}
 	
-	@Autowired
 	public void setIsAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
@@ -80,7 +77,6 @@ public class User {
 		return type;
 	}
 
-	@Autowired
 	public void setType(String type) {
 		this.type = type;
 	}
@@ -89,17 +85,8 @@ public class User {
 		return email;
 	}
 	
-	@Autowired
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public User() {
-	}
-
-	public User(String username, String password) {
-		this.username = username;
-		this.password = password;
 	}
 
 }

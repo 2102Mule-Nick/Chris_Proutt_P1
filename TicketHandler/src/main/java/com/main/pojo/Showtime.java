@@ -3,12 +3,15 @@ package com.main.pojo;
 import java.sql.Time;
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Showtime {
 		
+	public Showtime() {
+		super();
+	}
+
 	private int showtime_id;
 	
 	private int theater_id;
@@ -25,7 +28,6 @@ public class Showtime {
 		return showtime_id;
 	}
 	
-	@Autowired
 	public void setShowtime_id(int showtime_id) {
 		this.showtime_id = showtime_id;
 	}
@@ -34,7 +36,6 @@ public class Showtime {
 		return theater_id;
 	}
 	
-	@Autowired
 	public void setTheater_id(int theater_id) {
 		this.theater_id = theater_id;
 	}
@@ -43,7 +44,6 @@ public class Showtime {
 		return screen_id;
 	}
 
-	@Autowired
 	public void setScreen_id(int screen_id) {
 		this.screen_id = screen_id;
 	}
@@ -52,7 +52,6 @@ public class Showtime {
 		return movie_id;
 	}
 
-	@Autowired
 	public void setMovie_id(int movie_id) {
 		this.movie_id = movie_id;
 	}
@@ -61,7 +60,6 @@ public class Showtime {
 		return showing_time;
 	}
 
-	@Autowired
 	public void setShowing_time(Time showing_time) {
 		this.showing_time = showing_time;
 	}
@@ -70,7 +68,6 @@ public class Showtime {
 		return showing_date;
 	}
 
-	@Autowired
 	public void setShowing_date(Date showing_date) {
 		this.showing_date = showing_date;
 	}
