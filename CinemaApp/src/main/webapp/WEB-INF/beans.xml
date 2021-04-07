@@ -13,8 +13,5 @@
 
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 	
-	<jaxws:endpoint id="authenticate" implementor="com.main.ws.CreditCardAuthenticatorImpl" address="/authenticate"></jaxws:endpoint>
-
-	<!-- <jaxws:endpoint id="restockItem" implementor="com.revature.ws.ItemRestockImpl" address="/restock"></jaxws:endpoint>  -->
-
+	<jaxws:endpoint id="showtimeCreator" implementor="com.main.ws.ShowTimeCreatorImpl" address="/showtimes"></jaxws:endpoint>
 </beans>

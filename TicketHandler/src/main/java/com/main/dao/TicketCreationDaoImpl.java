@@ -1,9 +1,13 @@
 package com.main.dao;
 
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.main.dao.mapper.TicketCreationRowMapper;
@@ -43,17 +47,31 @@ public class TicketCreationDaoImpl implements TicketCreation {
 	}
 
 	@Override
-	public void createTicket(Ticket ticket) {
+	public Ticket createTicket(Ticket ticket) {
 		String sql = "insert into tickets (user_id, theater_id, movie_id, seat_id, screen_id) values (?, ?, ?, ?, ?)";
 		
-		template.update(sql, ticket.getUser_id(), ticket.getTheater_id(), ticket.getMovie_id(), ticket.getSeat_id(), ticket.getScreen_id());
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		
+		template.update(connection -> {
+			PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			ps.setInt(1, ticket.getUser_id());
+			ps.setInt(2, ticket.getTheater_id());
+			ps.setInt(3, ticket.getMovie_id());
+			ps.setInt(4, ticket.getSeat_id());
+			ps.setInt(5, ticket.getScreen_id());
+			return ps;
+		}, keyHolder);
+		
+		ticket.setTicket_id((int)keyHolder.getKeys().get("ticket_id"));
+		
+		return ticket;
 	}
 
 	@Override
-	public void deleteTicket(Ticket ticket) {
+	public void deleteTicket(int id) {
 		String sql = "delete from tickets where ticket_id = ?";
 
-		template.update(sql, ticket.getTicket_id());
+		template.update(sql, id);
 	}
 
 	@Override

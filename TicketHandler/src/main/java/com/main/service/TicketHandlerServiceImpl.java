@@ -32,15 +32,15 @@ public class TicketHandlerServiceImpl implements TicketHandlerService {
 	}
 
 	@Override
-	public void createTicket(Ticket ticket, int quantity) {		
-		for(int i = 0; i < quantity; i++) {
-			ticketdao.createTicket(ticket);
-		}
+	public Ticket createTicket(Ticket ticket) {		
+		ticketdao.createTicket(ticket);
+		
+		return ticket;
 	}
 
 	@Override
-	public void deleteTicket(Ticket ticket) {
-		ticketdao.deleteTicket(ticket);
+	public void deleteTicket(int id) {
+		ticketdao.deleteTicket(id);
 	}
 
 	@Override

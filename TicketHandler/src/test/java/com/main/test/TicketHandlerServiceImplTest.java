@@ -22,23 +22,28 @@ public class TicketHandlerServiceImplTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		ticket = new Ticket();
+		ticket = new Ticket(1, 1, 1, 1, 1);
 		ticketdao = new TicketCreationDaoImpl();
 		service = new TicketHandlerServiceImpl(ticketdao);
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		ticket = null;
+		ticketdao = null;
+		service = null;
 	}
 
 	@Test
 	public void testCreateTicket() {
-		fail("Not yet implemented");
+		assertEquals("The ticket returned should match the ticket sent", service.createTicket(ticket), ticket);
 	}
 
 	@Test
 	public void testDeleteTicket() {
-		fail("Not yet implemented");
+		service.deleteTicket(ticket.getTicket_id());
+		
+		assertNull("The ticket should no longer exist", ticket);
 	}
 
 	@Test

@@ -12,6 +12,15 @@ public class Ticket {
 		super();
 	}
 
+	public Ticket(int user_id, int theater_id, int movie_id, int seat_id, int screen_id) {
+		super();
+		this.user_id = user_id;
+		this.theater_id = theater_id;
+		this.movie_id = movie_id;
+		this.seat_id = seat_id;
+		this.screen_id = screen_id;
+	}
+
 	private int ticket_id;
 	
 	private int user_id;

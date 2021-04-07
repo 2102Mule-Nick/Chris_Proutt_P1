@@ -9,9 +9,9 @@ import com.main.pojo.Ticket;
 @Service
 public interface TicketHandlerService {
 
-	public void createTicket(Ticket ticket, int quantity);
+	public Ticket createTicket(Ticket ticket);
 	
-	public void deleteTicket(Ticket ticket);
+	public void deleteTicket(int id);
 	
 	public Ticket getTicketbyId(int id);
 	

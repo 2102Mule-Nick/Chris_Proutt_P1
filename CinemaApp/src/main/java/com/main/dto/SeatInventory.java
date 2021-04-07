@@ -8,7 +8,6 @@ public class SeatInventory implements Serializable {
 
 	public SeatInventory() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

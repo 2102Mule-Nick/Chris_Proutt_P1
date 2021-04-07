@@ -1,7 +1,7 @@
 package com.main.pojo;
 
+import java.sql.Date;
 import java.sql.Time;
-import java.util.Date;
 
 import org.springframework.stereotype.Component;
 

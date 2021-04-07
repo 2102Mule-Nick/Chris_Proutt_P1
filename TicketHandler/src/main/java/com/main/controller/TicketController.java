@@ -24,14 +24,14 @@ public class TicketController {
 	}
 	
 	@PostMapping("/ticket")
-	public String createTicket(@RequestBody Ticket ticket, int quantity) {
-		service.createTicket(ticket, quantity);
-		return quantity + "New Tickets Created";
+	public String createTicket(@RequestBody Ticket ticket) {
+		service.createTicket(ticket);
+		return "New Tickets Created";
 	}
 	
 	@DeleteMapping("/ticket/{ticketId}")
-	public String deleteTicket(@RequestBody Ticket ticket) {
-		service.deleteTicket(ticket);
+	public String deleteTicket(@PathVariable int ticketId) {
+		service.deleteTicket(ticketId);
 		return "Ticket Deleted";
 	}
 	
@@ -56,7 +56,7 @@ public class TicketController {
 	}
 	
 	@GetMapping("/ticket/theater/{theaterId}")
-	public List<Ticket> getAllTicketByTheater(@PathVariable int theaterid){
+	public List<Ticket> getAllTicketByTheater(@PathVariable Integer theaterid){
 		return service.getAllTicketsByTheaterId(theaterid);
 	}
 	

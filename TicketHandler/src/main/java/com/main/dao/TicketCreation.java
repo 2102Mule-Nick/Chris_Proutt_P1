@@ -9,9 +9,9 @@ import com.main.pojo.Ticket;
 @Repository
 public interface TicketCreation {
 
-	public void createTicket(Ticket ticket);
+	public Ticket createTicket(Ticket ticket);
 	
-	public void deleteTicket(Ticket ticket);
+	public void deleteTicket(int id);
 	
 	public Ticket getTicketById(int id);
 	
