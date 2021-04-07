@@ -6,12 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.main.dao.TicketCreation;
-import com.main.pojo.Movie;
-import com.main.pojo.Screen;
-import com.main.pojo.Seat;
-import com.main.pojo.Theater;
 import com.main.pojo.Ticket;
-import com.main.pojo.User;
 
 @Service
 public class TicketHandlerServiceImpl implements TicketHandlerService {
@@ -37,9 +32,10 @@ public class TicketHandlerServiceImpl implements TicketHandlerService {
 	}
 
 	@Override
-	public void createTicket(Ticket ticket) {
-		ticketdao.createTicket(ticket);
-
+	public void createTicket(Ticket ticket, int quantity) {		
+		for(int i = 0; i < quantity; i++) {
+			ticketdao.createTicket(ticket);
+		}
 	}
 
 	@Override
@@ -58,23 +54,23 @@ public class TicketHandlerServiceImpl implements TicketHandlerService {
 	}
 
 	@Override
-	public List<Ticket> getAllTicketsByUser(User user) {
-		return ticketdao.getAllTicketsForUser(user);
+	public List<Ticket> getAllTicketsByUser(int id) {
+		return ticketdao.getAllTicketsForUserId(id);
 	}
 
 	@Override
-	public List<Ticket> getAllTicketsByMovie(Movie movie) {
-		return ticketdao.getAllTicketsForMovie(movie);
+	public List<Ticket> getAllTicketsByMovie(int id) {
+		return ticketdao.getAllTicketsForMovieId(id);
 	}
 
 	@Override
-	public List<Ticket> getAllTicketsByScreen(Screen screen) {
-		return ticketdao.getAllTicketForScreen(screen);
+	public List<Ticket> getAllTicketsByScreen(int id) {
+		return ticketdao.getAllTicketForScreenId(id);
 	}
 
 	@Override
-	public List<Ticket> getAllTicketsBySeat(Seat seat) {
-		return ticketdao.getAllTicketsForSeat(seat);
+	public List<Ticket> getAllTicketsBySeat(int id) {
+		return ticketdao.getAllTicketsForSeatId(id);
 	}
 
 	@Override

@@ -10,12 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.main.pojo.Movie;
-import com.main.pojo.Screen;
-import com.main.pojo.Seat;
-import com.main.pojo.Theater;
 import com.main.pojo.Ticket;
-import com.main.pojo.User;
 import com.main.service.TicketHandlerService;
 
 @RestController
@@ -29,9 +24,9 @@ public class TicketController {
 	}
 	
 	@PostMapping("/ticket")
-	public String createTicket(@RequestBody Ticket ticket) {
-		service.createTicket(ticket);
-		return "New Ticket Created";
+	public String createTicket(@RequestBody Ticket ticket, int quantity) {
+		service.createTicket(ticket, quantity);
+		return quantity + "New Tickets Created";
 	}
 	
 	@DeleteMapping("/ticket/{ticketId}")
@@ -51,33 +46,33 @@ public class TicketController {
 	}
 	
 	@GetMapping("/ticket/user/{userId}")
-	public List<Ticket> getAllTicketsByUser(@PathVariable User user){
-		return service.getAllTicketsByUser(user);
+	public List<Ticket> getAllTicketsByUser(@PathVariable int userId){
+		return service.getAllTicketsByUser(userId);
 	}
 	
 	@GetMapping("/ticket/movie/{movieId}")
-	public List<Ticket> getAllTicketsByMovie(@PathVariable Movie movie){
-		return service.getAllTicketsByMovie(movie);
+	public List<Ticket> getAllTicketsByMovie(@PathVariable int movieId){
+		return service.getAllTicketsByMovie(movieId);
 	}
 	
 	@GetMapping("/ticket/theater/{theaterId}")
-	public List<Ticket> getAllTicketByTheater(@PathVariable int id){
-		return service.getAllTicketsByTheaterId(id);
+	public List<Ticket> getAllTicketByTheater(@PathVariable int theaterid){
+		return service.getAllTicketsByTheaterId(theaterid);
 	}
 	
 	@GetMapping("/ticket/screen/{screenId}")
-	public List<Ticket> getAllTicketsByScreen(@PathVariable Screen screen){
-		return service.getAllTicketsByScreen(screen);
+	public List<Ticket> getAllTicketsByScreen(@PathVariable int screenid){
+		return service.getAllTicketsByScreen(screenid);
 	}
 	
 	@GetMapping("/ticket/seat/{seatId}")
-	public List<Ticket> getAllTicketsBySeat(@PathVariable Seat seat){
-		return service.getAllTicketsBySeat(seat);
+	public List<Ticket> getAllTicketsBySeat(@PathVariable int seatid){
+		return service.getAllTicketsBySeat(seatid);
 	}
 	
 	@GetMapping("/ticket/{ticketId}/info")
-	public Ticket getTicketInformation(@PathVariable int id) {
-		return service.getTicketInformation(id);
+	public Ticket getTicketInformation(@PathVariable int ticketid) {
+		return service.getTicketInformation(ticketid);
 	}
 		
 }

@@ -8,12 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.main.dao.mapper.TicketCreationRowMapper;
 import com.main.dao.mapper.TicketInfoRowMapper;
-import com.main.pojo.Movie;
-import com.main.pojo.Screen;
-import com.main.pojo.Seat;
-import com.main.pojo.Theater;
 import com.main.pojo.Ticket;
-import com.main.pojo.User;
 
 @Repository
 public class TicketCreationDaoImpl implements TicketCreation {
@@ -80,19 +75,19 @@ public class TicketCreationDaoImpl implements TicketCreation {
 	}
 
 	@Override
-	public List<Ticket> getAllTicketsForMovie(Movie movie) {
+	public List<Ticket> getAllTicketsForMovieId(int id) {
 		String sql = "select * from tickets where movie_id = ?";
 		
-		List<Ticket> ticketList = template.query(sql, mapper, movie.getMovie_id());
+		List<Ticket> ticketList = template.query(sql, mapper, id);
 		
 		return ticketList;
 	}
 
 	@Override
-	public List<Ticket> getAllTicketForScreen(Screen screen) {
+	public List<Ticket> getAllTicketForScreenId(int id) {
 		String sql = "select * from tickets where screen_id = ?";
 		
-		List<Ticket> ticketList = template.query(sql, mapper, screen.getScreen_id());
+		List<Ticket> ticketList = template.query(sql, mapper, id);
 		
 		return ticketList;
 	}
@@ -107,19 +102,19 @@ public class TicketCreationDaoImpl implements TicketCreation {
 	}
 
 	@Override
-	public List<Ticket> getAllTicketsForSeat(Seat seat) {
+	public List<Ticket> getAllTicketsForSeatId(int id) {
 		String sql = "select * from ticket where seat_id = ?";
 		
-		List<Ticket> ticketList = template.query(sql, mapper, seat.getSeat_id());
+		List<Ticket> ticketList = template.query(sql, mapper, id);
 		
 		return ticketList;
 	}
 
 	@Override
-	public List<Ticket> getAllTicketsForUser(User user) {
+	public List<Ticket> getAllTicketsForUserId(int id) {
 		String sql = "select * from ticket where user_id = ?";
 		
-		List<Ticket> ticketList = template.query(sql, mapper, user.getUser_id());
+		List<Ticket> ticketList = template.query(sql, mapper, id);
 		
 		return ticketList;
 	}
