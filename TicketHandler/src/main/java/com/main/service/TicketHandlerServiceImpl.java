@@ -78,14 +78,13 @@ public class TicketHandlerServiceImpl implements TicketHandlerService {
 	}
 
 	@Override
-	public List<Ticket> getAllTicketsByTheater(Theater theater) {
-		return ticketdao.getAllTicketForTheater(theater);
+	public List<Ticket> getAllTicketsByTheaterId(int id) {
+		return ticketdao.getAllTicketsByTheaterId(id);
 	}
 
 	@Override
 	public Ticket getTicketInformation(int id) {
-		//return ticketdao.getTicketInformation(id);
-		return null;
+		return ticketdao.getTicketInformation(id);
 	}
 
 }

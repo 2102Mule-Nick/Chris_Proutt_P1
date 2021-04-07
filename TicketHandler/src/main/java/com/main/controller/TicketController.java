@@ -21,10 +21,6 @@ import com.main.service.TicketHandlerService;
 @RestController
 public class TicketController {
 
-	public TicketController() {
-		super();
-	}
-
 	private TicketHandlerService service;
 
 	@Autowired
@@ -55,34 +51,33 @@ public class TicketController {
 	}
 	
 	@GetMapping("/ticket/user/{userId}")
-	public List<Ticket> getAllTicketsByUser(@RequestBody User user){
+	public List<Ticket> getAllTicketsByUser(@PathVariable User user){
 		return service.getAllTicketsByUser(user);
 	}
 	
 	@GetMapping("/ticket/movie/{movieId}")
-	public List<Ticket> getAllTicketsByMovie(@RequestBody Movie movie){
+	public List<Ticket> getAllTicketsByMovie(@PathVariable Movie movie){
 		return service.getAllTicketsByMovie(movie);
 	}
 	
 	@GetMapping("/ticket/theater/{theaterId}")
-	public List<Ticket> getAllTicketByTheater(@RequestBody Theater theater){
-		return service.getAllTicketsByTheater(theater);
+	public List<Ticket> getAllTicketByTheater(@PathVariable int id){
+		return service.getAllTicketsByTheaterId(id);
 	}
 	
 	@GetMapping("/ticket/screen/{screenId}")
-	public List<Ticket> getAllTicketsByScreen(@RequestBody Screen screen){
+	public List<Ticket> getAllTicketsByScreen(@PathVariable Screen screen){
 		return service.getAllTicketsByScreen(screen);
 	}
 	
 	@GetMapping("/ticket/seat/{seatId}")
-	public List<Ticket> getAllTicketsBySeat(@RequestBody Seat seat){
+	public List<Ticket> getAllTicketsBySeat(@PathVariable Seat seat){
 		return service.getAllTicketsBySeat(seat);
 	}
 	
 	@GetMapping("/ticket/{ticketId}/info")
-	public Ticket getTicketInformation(int id) {
-		/*return service.getTicketInformation(id);*/
-		return null;
+	public Ticket getTicketInformation(@PathVariable int id) {
+		return service.getTicketInformation(id);
 	}
 		
 }

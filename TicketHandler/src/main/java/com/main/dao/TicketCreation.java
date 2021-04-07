@@ -26,7 +26,7 @@ public interface TicketCreation {
 	
 	public List<Ticket> getAllTicketForScreen(Screen screen);
 	
-	public List<Ticket> getAllTicketForTheater(Theater theater);
+	public List<Ticket> getAllTicketsByTheaterId(int id);
 	
 	public List<Ticket> getAllTicketsForSeat(Seat seat);
 	

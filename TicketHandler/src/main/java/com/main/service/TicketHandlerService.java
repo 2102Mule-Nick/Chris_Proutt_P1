@@ -30,7 +30,7 @@ public interface TicketHandlerService {
 	
 	public List<Ticket> getAllTicketsBySeat(Seat seat);
 	
-	public List<Ticket> getAllTicketsByTheater(Theater theater);
+	public List<Ticket> getAllTicketsByTheaterId(int id);
 	
 	public Ticket getTicketInformation(int id);
 	
