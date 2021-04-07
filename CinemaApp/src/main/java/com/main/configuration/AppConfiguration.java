@@ -3,10 +3,12 @@ package com.main.configuration;
 import java.util.Scanner;
 
 import javax.jms.ConnectionFactory;
+import javax.jms.Queue;
 import javax.jms.Topic;
 import javax.sql.DataSource;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +21,10 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.connection.SingleConnectionFactory;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.listener.DefaultMessageListenerContainer;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.main.messaging.JmsMessageListener;
 
 // import com.main.messaging.JmsMessageListener;
 
@@ -31,7 +36,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class AppConfiguration {
 	public static final String BROKER_URL = "tcp://localhost:61616";
 
-	public static final String INVENTORY_QUEUE = "INVENTORY_QUEUE";
+	public static final String SEAT_QUEUE = "SEAT_QUEUE";
 	public static final String MOVIE_TOPIC = "MOVIE_TOPIC";
 	
 	//DataSource info
@@ -90,21 +95,25 @@ public class AppConfiguration {
 	}
 	
 	@Bean
+	public Queue seatQueue() {
+		return new ActiveMQQueue(SEAT_QUEUE);
+	}
+	
+	@Bean
 	public Topic destinationTopic() {
 		return new ActiveMQTopic(MOVIE_TOPIC);
 	}
 	
-	/*@Bean
+	@Bean
 	public DefaultMessageListenerContainer jmsContainer(ConnectionFactory connectionFactory,
 		JmsMessageListener messageListener) {
 		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
 		container.setConnectionFactory(connectionFactory);
-//		container.setDestinationName(TICKET_QUEUE);
 		container.setDestinationName(MOVIE_TOPIC);
 		container.setPubSubDomain(true);
 		container.setMessageListener(messageListener);
 		return container;
-	}*/
+	}
 	
 	@Bean
 	public JmsTemplate jmsTemplate(ConnectionFactory connectionFactory) {

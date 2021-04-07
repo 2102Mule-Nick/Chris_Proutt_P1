@@ -13,6 +13,8 @@ public class Theater {
 	
 	private String address;
 	
+	private String zipcode;
+	
 	private int num_of_screens;
 	
 	private List<Movie> showtimes;
@@ -41,6 +43,14 @@ public class Theater {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
 
 	public int getNum_of_screens() {

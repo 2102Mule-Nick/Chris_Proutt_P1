@@ -20,6 +20,7 @@ public class TheaterExtractor implements ResultSetExtractor<Theater> {
 		theater.setAddress(rs.getString("theater_address"));
 		theater.setTheater_id(rs.getInt("theater_id"));	
 		theater.setNum_of_screens(rs.getInt("num_of_screens"));
+		theater.setZipcode(rs.getString("zip_code"));
 		
 		return theater;
 	}
