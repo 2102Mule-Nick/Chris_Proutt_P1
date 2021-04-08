@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
-import com.main.dto.SeatInventory;
-import com.main.pojo.Seat;
+import com.main.dto.ScreenInventory;
+import com.main.pojo.Screen;
 
 @Service
 public class JmsMessageSender {
@@ -26,9 +26,9 @@ public class JmsMessageSender {
 		this.seatQueue = seatQueue;
 	}
 	
-	public void sendToQueue(Seat seat, int quantity) {
+	public void sendToSeatQueue(Screen screen, int quantity) {
 		
-		SeatInventory si = new SeatInventory(seat, quantity);
+		ScreenInventory si = new ScreenInventory(screen, quantity);
 		
 		template.send(seatQueue, (s) -> s.createObjectMessage(si));
 	}

@@ -20,13 +20,13 @@ public class TicketServiceFinder {
 		
 		RestTemplate template = new RestTemplate();
 		
-		return template.postForObject("http://localhost:8080/TicketHandler/ticket", ticket, Ticket.class);
+		return template.postForObject("http://localhost:8080/TicketService/ticket", ticket, Ticket.class);
 	}
 	
 	public String deleteTicket(Ticket ticket) {
 		RestTemplate template = new RestTemplate();
 		
-		template.delete("http://localhost:8080/TicketHandler/ticket/" + ticket.getTicket_id());
+		template.delete("http://localhost:8080/TicketService/ticket/" + ticket.getTicket_id());
 		return "Ticket deleted";
 	}
 	
@@ -39,10 +39,9 @@ public class TicketServiceFinder {
 	public List<Ticket> getAllTickets(){
 		RestTemplate template = new RestTemplate();
 		
-		Ticket[] ticketArray = template.getForObject("http://localhost:8080/TicketHandler/ticket/", Ticket[].class);
+		Ticket[] ticketArray = template.getForObject("http://localhost:8080/TicketService/ticket/", Ticket[].class);
 		
 		List<Ticket> ticketList = Arrays.asList(ticketArray);
-		//ResponseEntity<List<Ticket>> response = template.exchange("http://localhost:8080/TicketHandler/ticket/", HttpMethod.GET, null, new ParameterizedTypeReference<List<Ticket>>);
 		
 		return ticketList;
 	}
@@ -50,7 +49,7 @@ public class TicketServiceFinder {
 	public List<Ticket> getAllTicketsByUser(User user){
 		RestTemplate template = new RestTemplate();
 		
-		Ticket[] ticketArray = template.getForObject("http://localhost:8080/TicketHandler/ticket/user/" + user.getUser_id(), Ticket[].class);
+		Ticket[] ticketArray = template.getForObject("http://localhost:8080/TicketService/ticket/user/" + user.getUser_id(), Ticket[].class);
 		
 		List<Ticket> ticketList = Arrays.asList(ticketArray);
 		
@@ -60,7 +59,7 @@ public class TicketServiceFinder {
 	public List<Ticket> getAllTicketsByMovie(Movie movie){
 		RestTemplate template = new RestTemplate();
 		
-		Ticket[] ticketArray = template.getForObject("http://localhost:8080/TicketHandler/ticket/movie/" + movie.getMovie_id(), Ticket[].class);
+		Ticket[] ticketArray = template.getForObject("http://localhost:8080/TicketService/ticket/movie/" + movie.getMovie_id(), Ticket[].class);
 		
 		List<Ticket> ticketList = Arrays.asList(ticketArray);
 		
@@ -70,7 +69,7 @@ public class TicketServiceFinder {
 	public List<Ticket> getAllTicketsByTheater(Theater theater){
 		RestTemplate template = new RestTemplate();
 		
-		Ticket[] ticketArray = template.getForObject("http://localhost:8080/TicketHandler/ticket/theater/" + theater.getTheater_id(), Ticket[].class);
+		Ticket[] ticketArray = template.getForObject("http://localhost:8080/TicketService/ticket/theater/" + theater.getTheater_id(), Ticket[].class);
 		
 		List<Ticket> ticketList = Arrays.asList(ticketArray);
 		
@@ -80,7 +79,7 @@ public class TicketServiceFinder {
 	public List<Ticket> getAllTicketsByScreen(Screen screen){
 		RestTemplate template = new RestTemplate();
 		
-		Ticket[] ticketArray = template.getForObject("http://localhost:8080/TicketHandler/ticket/screen/" + screen.getScreen_id(), Ticket[].class);
+		Ticket[] ticketArray = template.getForObject("http://localhost:8080/TicketService/ticket/screen/" + screen.getScreen_id(), Ticket[].class);
 		
 		List<Ticket> ticketList = Arrays.asList(ticketArray);
 		
@@ -90,7 +89,7 @@ public class TicketServiceFinder {
 	public List<Ticket> getAllTicketsBySeat(Seat seat){
 		RestTemplate template = new RestTemplate();
 		
-		Ticket[] ticketArray = template.getForObject("http://localhost:8080/TicketHandler/ticket/seat/" + seat.getSeat_id(), Ticket[].class);
+		Ticket[] ticketArray = template.getForObject("http://localhost:8080/TicketService/ticket/seat/" + seat.getSeat_id(), Ticket[].class);
 		
 		List<Ticket> ticketList = Arrays.asList(ticketArray);
 		
@@ -100,6 +99,6 @@ public class TicketServiceFinder {
 	public Ticket getTicketInformation(int id) {
 		RestTemplate template = new RestTemplate();
 		
-		return template.getForObject("http://localhost:8080/TicketHandler/ticket/" + id + "/info", Ticket.class);
+		return template.getForObject("http://localhost:8080/TicketService/ticket/" + id + "/info", Ticket.class);
 	}
 }

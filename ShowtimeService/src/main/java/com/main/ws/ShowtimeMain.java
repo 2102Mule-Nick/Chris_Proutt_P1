@@ -6,6 +6,5 @@ public class ShowtimeMain {
 		
 		ShowTimeCreator showtimePort = showtimeGen.getShowTimeCreatorImplPort();
 		
-		
 	}
 }
