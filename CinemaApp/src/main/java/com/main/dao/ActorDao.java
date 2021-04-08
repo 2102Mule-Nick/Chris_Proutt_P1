@@ -11,6 +11,6 @@ public interface ActorDao {
 	
 	public void deleteActor(Actor actor);
 	
-	public List<Actor> getActorsFromMovie(Movie movie);
+	public List<Actor> getActorsFromMovie(int movieId);
 	
 }

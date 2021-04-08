@@ -43,7 +43,6 @@ public class JmsMessageListener {
 					e.printStackTrace();
 				}
 			} catch (JMSException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

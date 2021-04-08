@@ -16,6 +16,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.connection.SingleConnectionFactory;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import bitronix.tm.resource.jdbc.PoolingDataSource;
 
@@ -23,6 +24,7 @@ import bitronix.tm.resource.jdbc.PoolingDataSource;
 @ComponentScan("com.main")
 @EnableJms
 @EnableAspectJAutoProxy
+@EnableTransactionManagement
 public class AppConfig {
 	// JMS Broker Url
 		public static final String BROKER_URL = "tcp://localhost:61616";

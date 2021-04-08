@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.main.dao.mapper.ActorRowMapper;
 import com.main.pojo.Actor;
-import com.main.pojo.Movie;
 
 @Repository
 public class ActorDaoJDBCImpl implements ActorDao {
@@ -18,9 +17,7 @@ public class ActorDaoJDBCImpl implements ActorDao {
 	private ActorRowMapper mapper;
 	
 	private CharacterDao characterDao;
-	
-	private MovieDao movieDao;
-	
+		
 	public JdbcTemplate getTemplate() {
 		return template;
 	}
@@ -31,10 +28,6 @@ public class ActorDaoJDBCImpl implements ActorDao {
 
 	public CharacterDao getCharacterDao() {
 		return characterDao;
-	}
-
-	public MovieDao getMovieDao() {
-		return movieDao;
 	}
 
 	@Autowired
@@ -52,11 +45,6 @@ public class ActorDaoJDBCImpl implements ActorDao {
 		this.characterDao = characterDao;
 	}
 
-	@Autowired
-	public void setMovieDao(MovieDao movieDao) {
-		this.movieDao = movieDao;
-	}
-
 	@Override
 	public void addActor(Actor actor) {
 		String sql = "insert into actors (first_name, last_name) values (?, ?)";
@@ -70,10 +58,10 @@ public class ActorDaoJDBCImpl implements ActorDao {
 	}
 
 	@Override
-	public List<Actor> getActorsFromMovie(Movie movie) {
+	public List<Actor> getActorsFromMovie(int movieId) {
 		String sql = "select * from actors where actor_id = "
 				+ "(select actor_id from characters where movie_id = ?)";
-		List<Actor> actorList = template.query(sql, mapper, movie.getMovie_id());
+		List<Actor> actorList = template.query(sql, mapper, movieId);
 		
 		return actorList;
 	}
