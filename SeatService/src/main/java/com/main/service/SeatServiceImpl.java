@@ -78,7 +78,7 @@ public class SeatServiceImpl implements SeatService {
 	@Transactional
 	public Seat addSeat(Seat seat) {
 		try {
-			if(this.isExistingSeat(seat.getSeat_id())) {
+			if(!this.isExistingSeat(seat.getSeat_id())) {
 				seatdao.createSeat(seat);
 				return seat;
 			}
@@ -100,7 +100,7 @@ public class SeatServiceImpl implements SeatService {
 			e.printStackTrace();
 		}
 		
-		return null;
+		return "Seat Removal Unsucessfull";
 	}
 
 	@Override
