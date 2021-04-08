@@ -1,8 +1,6 @@
 package com.main.messaging;
 
-import javax.jms.JMSException;
 import javax.jms.Message;
-import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
 import org.springframework.jms.annotation.JmsListener;

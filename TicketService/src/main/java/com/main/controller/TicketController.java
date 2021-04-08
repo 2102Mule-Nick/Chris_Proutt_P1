@@ -21,7 +21,7 @@ public class TicketController {
 	@Autowired
 	public void setService(TicketHandlerService service) {
 		this.service = service;
-	}
+	}                        
 	
 	@PostMapping("/ticket")
 	public String createTicket(@RequestBody Ticket ticket) {
@@ -36,8 +36,8 @@ public class TicketController {
 	}
 	
 	@GetMapping("/ticket/{ticketID}")
-	public Ticket getTicketById(@PathVariable int id) {
-		return service.getTicketbyId(id);
+	public Ticket getTicketById(@PathVariable int ticketID) {
+		return service.getTicketbyId(ticketID);
 	}
 	
 	@GetMapping("/ticket")
