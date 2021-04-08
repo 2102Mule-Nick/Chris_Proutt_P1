@@ -1,4 +1,4 @@
-package com.main.ws;
+package com.main.service;
 
 import java.util.List;
 import org.apache.log4j.Logger;
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.main.dao.ShowtimeDao;
-import com.main.exception.ShowtimeNotFound;
+import com.main.exceptions.ShowtimeNotFound;
 import com.main.pojo.Showtime;
 
 @Service

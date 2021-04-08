@@ -13,5 +13,5 @@
 
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 	
-	<jaxws:endpoint id="showtimeCreator" implementor="com.main.ws.ShowTimeCreatorImpl" address="/showtimes"></jaxws:endpoint>
+	<jaxws:endpoint id="bookingService" implementor="com.main.ws.BookingServiceImpl" address="/bookings"></jaxws:endpoint>
 </beans>

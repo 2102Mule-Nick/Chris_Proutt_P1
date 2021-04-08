@@ -1,11 +1,11 @@
-package com.main.ws;
+package com.main.service;
 
 import java.util.List;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
-import com.main.exception.ShowtimeNotFound;
+import com.main.exceptions.ShowtimeNotFound;
 import com.main.pojo.Showtime;
 
 @WebService

@@ -16,9 +16,6 @@ import com.main.pojo.Seat;
 
 @Repository
 public class SeatDaoImpl implements SeatDao {
-
-	@Autowired
-	Logger log;
 	
 	private JdbcTemplate template;
 	
@@ -73,8 +70,6 @@ public class SeatDaoImpl implements SeatDao {
 
 	@Override
 	public Seat getSeatBySeatId(int id) {
-		log.trace("Getting seat by ID");
-		
 		String sql = "select * from seats where seat_id = ?";
 		
 		List<Seat> seatList = template.query(sql, mapper, id);
@@ -82,9 +77,7 @@ public class SeatDaoImpl implements SeatDao {
 	}
 
 	@Override
-	public List<Seat> getAllSeatsInTheater(int id) {
-		log.trace("Getting all seats in a theater");
-		
+	public List<Seat> getAllSeatsInTheater(int id) {		
 		String sql = "select * from seats where theater_id = ?";
 		
 		List<Seat> seatList = template.query(sql, mapper, id);
@@ -93,9 +86,7 @@ public class SeatDaoImpl implements SeatDao {
 	}
 	
 	@Override
-	public List<Seat> getAllSeatsInScreen(int id){
-		log.trace("Getting all seats in a screen");
-		
+	public List<Seat> getAllSeatsInScreen(int id){		
 		String sql = "select * from seats where screen_id = ?";
 		
 		List<Seat> seatList = template.query(sql, mapper, id);

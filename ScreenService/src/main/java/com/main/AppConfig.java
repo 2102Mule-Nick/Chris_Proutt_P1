@@ -31,6 +31,7 @@ public class AppConfig {
 		
 		// Destinations
 		public static final String SCREEN_QUEUE = "Seat_Queue";
+		public static final String THEATER_QUEUE = "Theater_Queue";
 		
 		// DataSource info
 		public static final String DATASOURCE_SCHEMA = "public";
@@ -79,16 +80,21 @@ public class AppConfig {
 		}
 		
 		@Bean
+		public Queue TheaterQueue() {
+			return new ActiveMQQueue(THEATER_QUEUE);
+		}
+		
+		@Bean
 		public DefaultJmsListenerContainerFactory jmsListenerContainerFactory(ConnectionFactory connectionFactory) {
 			DefaultJmsListenerContainerFactory container = new DefaultJmsListenerContainerFactory();
 			container.setConnectionFactory(connectionFactory);
 			return container;
 		}
 		
-		@Bean
+		/*@Bean
 		public Logger log() {
 			PropertyConfigurator.configure(getClass().getResourceAsStream("/log4j.properties"));
 			Logger log = Logger.getRootLogger();
 			return log;
-		}
+		}*/
 }

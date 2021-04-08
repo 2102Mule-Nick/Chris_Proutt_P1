@@ -1,4 +1,4 @@
-package com.main.exception;
+package com.main.exceptions;
 
 public class ShowtimeNotFound extends Exception {
 

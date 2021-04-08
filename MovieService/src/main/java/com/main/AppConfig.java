@@ -91,10 +91,10 @@ public class AppConfig {
 			return container;
 		}
 		
-		@Bean
+		/*@Bean
 		public Logger log() {
 			PropertyConfigurator.configure(getClass().getResourceAsStream("/log4j.properties"));
 			Logger log = Logger.getRootLogger();
 			return log;
-		}
+		}*/
 }

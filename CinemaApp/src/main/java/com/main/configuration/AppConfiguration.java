@@ -11,6 +11,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +20,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jms.annotation.EnableJms;
+import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.connection.SingleConnectionFactory;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
@@ -72,20 +74,16 @@ public class AppConfiguration {
 	}
 	
 	@Bean
-	@Scope("singleton")
-	public Scanner consoleInScanner() {
-		return new Scanner(System.in);
-	}
-	
-	@Bean
 	public Logger log() {
-		return Logger.getRootLogger();
+		PropertyConfigurator.configure(getClass().getResourceAsStream("/log4j.properties"));
+		Logger log = Logger.getRootLogger();
+		return log;
 	}
 	
 	@Bean
 	public ActiveMQConnectionFactory amqConnectionFactory() {
-		ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(BROKER_URL);
-		// connectionFactory.setTrustAllPackages(true);
+		ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
+		connectionFactory.setBrokerURL(BROKER_URL);
 		return connectionFactory;
 	}
 	
@@ -103,15 +101,11 @@ public class AppConfiguration {
 	public Topic destinationTopic() {
 		return new ActiveMQTopic(MOVIE_TOPIC);
 	}
-	
 	@Bean
-	public DefaultMessageListenerContainer jmsContainer(ConnectionFactory connectionFactory,
-		JmsMessageListener messageListener) {
-		DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
+	public DefaultJmsListenerContainerFactory jmsListenerContainerFactory(ConnectionFactory connectionFactory) {
+		DefaultJmsListenerContainerFactory container = new DefaultJmsListenerContainerFactory();
 		container.setConnectionFactory(connectionFactory);
-		container.setDestinationName(MOVIE_TOPIC);
 		container.setPubSubDomain(true);
-		container.setMessageListener(messageListener);
 		return container;
 	}
 	

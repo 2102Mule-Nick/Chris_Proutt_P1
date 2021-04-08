@@ -2,9 +2,11 @@ package com.main;
 
 import javax.jms.ConnectionFactory;
 import javax.jms.Queue;
+import javax.jms.Topic;
 import javax.sql.DataSource;
 
 import org.apache.activemq.command.ActiveMQQueue;
+import org.apache.activemq.command.ActiveMQTopic;
 import org.apache.activemq.spring.ActiveMQConnectionFactory;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -31,6 +33,7 @@ public class AppConfig {
 			
 			// Destinations
 			public static final String SCREEN_QUEUE = "Seat_Queue";
+			public static final String MOVIE_TOPIC = "Movie_Topic";
 			
 			// DataSource info
 			public static final String DATASOURCE_SCHEMA = "public";
@@ -79,16 +82,22 @@ public class AppConfig {
 			}
 			
 			@Bean
-			public DefaultJmsListenerContainerFactory jmsListenerContainerFactory(ConnectionFactory connectionFactory) {
-				DefaultJmsListenerContainerFactory container = new DefaultJmsListenerContainerFactory();
-				container.setConnectionFactory(connectionFactory);
-				return container;
+			public Topic MovieTopic() {
+				return new ActiveMQTopic(MOVIE_TOPIC);
 			}
 			
 			@Bean
+			public DefaultJmsListenerContainerFactory jmsListenerContainerFactory(ConnectionFactory connectionFactory) {
+				DefaultJmsListenerContainerFactory container = new DefaultJmsListenerContainerFactory();
+				container.setConnectionFactory(connectionFactory);
+				container.setPubSubDomain(true);
+				return container;
+			}
+			
+			/*@Bean
 			public Logger log() {
 				PropertyConfigurator.configure(getClass().getResourceAsStream("/log4j.properties"));
 				Logger log = Logger.getRootLogger();
 				return log;
-			}
+			}*/
 }

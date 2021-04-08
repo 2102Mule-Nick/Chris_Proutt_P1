@@ -1,4 +1,4 @@
-package com.main.dao.mapper;
+package com.main.dao.extractor;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

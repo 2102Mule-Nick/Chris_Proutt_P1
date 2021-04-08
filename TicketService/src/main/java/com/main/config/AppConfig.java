@@ -50,8 +50,8 @@ public class AppConfig {
 		return template;
 	}
 
-	@Bean
+	/*@Bean
 	public Logger log() {
 		return Logger.getRootLogger();
-	}
+	}*/
 }
