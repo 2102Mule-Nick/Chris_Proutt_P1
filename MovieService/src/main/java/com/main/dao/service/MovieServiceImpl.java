@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.main.dao.MovieDao;
+import com.main.dao.messaging.MovieMessageSender;
 import com.main.exceptions.MovieAlreadyExists;
 import com.main.exceptions.MovieDoesNotExist;
 import com.main.exceptions.NoMoviesExist;
@@ -15,6 +17,8 @@ import com.main.pojo.Movie;
 public class MovieServiceImpl implements MovieService {
 
 	private MovieDao moviedao;
+	
+	private MovieMessageSender sender;
 	
 	@Autowired
 	public void setMoviedao(MovieDao moviedao) {
@@ -40,7 +44,11 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
+	@Transactional
 	public Movie addMovie(Movie movie) throws MovieAlreadyExists {
+		
+		sender.sendToMovieTopic(movie.getTitle() + "added to movies.");
+		
 		try {
 			if(!this.isExistingMovie(movie.getMovie_id())) {
 				moviedao.addMovie(movie);
@@ -53,7 +61,7 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public String removeSeat(int movieId) {
+	public String removeMovie(int movieId) {
 		try {
 			if(this.isExistingMovie(movieId)) {
 				moviedao.removeMovie(movieId);
@@ -80,7 +88,7 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public Movie getScreenByMovieName(String string) {
+	public Movie getMovieByMovieName(String string) {
 		try {
 			if(this.isExistingMovie(string)) {
 				return moviedao.getMovieByTitle(string);

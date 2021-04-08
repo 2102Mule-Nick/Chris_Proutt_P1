@@ -18,11 +18,11 @@ public interface MovieService {
 	
 	public Movie addMovie(Movie movie) throws MovieAlreadyExists;
 	
-	public String removeSeat(int movieId);
+	public String removeMovie(int movieId);
 	
 	public Movie getMovieByMovieId(int movieId);
 	
-	public Movie getScreenByMovieName(String string);
+	public Movie getMovieByMovieName(String string);
 	
 	public List<Movie> getAllMovies() throws NoMoviesExist;
 	
